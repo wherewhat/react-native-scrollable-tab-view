@@ -27,6 +27,7 @@ const DefaultTabBar = React.createClass({
       activeTextColor: 'navy',
       inactiveTextColor: 'black',
       backgroundColor: null,
+      height: 50
     };
   },
 
@@ -68,9 +69,8 @@ const DefaultTabBar = React.createClass({
     const left = this.props.scrollValue.interpolate({
       inputRange: [0, 1, ], outputRange: [0,  containerWidth / numberOfTabs, ],
     });
-    let heightStyle = this.props.height === undefined ? {} : {height: this.props.height};
     return (
-      <View style={[styles.tabs, {backgroundColor: this.props.backgroundColor, }, this.props.style,heightStyle,]}>
+      <View style={[styles.tabs, {backgroundColor: this.props.backgroundColor, }, this.props.style,{height: this.props.height},]}>
         {this.props.tabs.map((name, page) => {
           const isTabActive = this.props.activeTab === page;
           const renderTab = this.props.renderTab || this.renderTab;
